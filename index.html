@@ -6,7 +6,7 @@
 <title>Siv Hari Nair — DevOps Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 <style>
   *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
@@ -24,7 +24,7 @@
   html{scroll-behavior:smooth}
 
   body{
-    font-family:'DM Sans',sans-serif;
+    font-family:'JetBrains Mono',monospace;
     background:var(--bg);
     color:var(--text);
     line-height:1.7;
@@ -77,7 +77,7 @@
   }
 
   .logo-initials{
-    font-family:'Instrument Serif',serif;
+    font-family:'JetBrains Mono',monospace;
     font-size:.95rem;
     font-weight:400;
     color:var(--accent);
@@ -96,7 +96,7 @@
   }
 
   .logo-text{
-    font-family:'Instrument Serif',serif;
+    font-family:'JetBrains Mono',monospace;
     font-size:1.1rem;
     letter-spacing:-0.02em;
   }
@@ -138,17 +138,16 @@
   }
 
   .hero-label{
-    font-family:'Instrument Serif',serif;
-    font-size:clamp(2.8rem,6vw,4.2rem);
-    font-style:italic;
-    line-height:1.1;
-    letter-spacing:-0.03em;
+    font-family:'JetBrains Mono',monospace;
+    font-size:clamp(2.2rem,5vw,3.4rem);
+    font-weight:700;
+    line-height:1.15;
+    letter-spacing:-0.04em;
     margin-bottom:4px;
   }
 
   .hero-label span{
     display:block;
-    font-style:normal;
     background:linear-gradient(135deg,var(--accent) 0%,#86efac 50%,#bbf7d0 100%);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
@@ -156,7 +155,7 @@
   }
 
   .hero p{
-    font-size:1.05rem;
+    font-size:.95rem;
     color:var(--text-muted);
     max-width:520px;
     margin-top:28px;
@@ -223,11 +222,11 @@
   }
 
   .section-title{
-    font-family:'Instrument Serif',serif;
-    font-size:1.6rem;
+    font-family:'JetBrains Mono',monospace;
+    font-size:1.3rem;
+    font-weight:600;
     letter-spacing:-0.02em;
     margin-bottom:32px;
-    font-style:italic;
   }
 
   .exp-card{
@@ -342,6 +341,67 @@
   footer span:last-child{
     font-style:italic;
     opacity:.6;
+  }
+
+  /* === PROJECTS === */
+  .project-card{
+    padding:24px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    margin-bottom:16px;
+    transition:border-color .3s,transform .3s;
+  }
+
+  .project-card:hover{
+    border-color:var(--accent-dim);
+    transform:translateY(-2px);
+  }
+
+  .project-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:10px;
+  }
+
+  .project-name{
+    font-family:'JetBrains Mono',monospace;
+    font-size:1.1rem;
+    letter-spacing:-0.01em;
+  }
+
+  .project-tag{
+    font-size:.7rem;
+    color:var(--accent);
+    background:rgba(74,222,128,.08);
+    border:1px solid var(--accent-dim);
+    padding:3px 10px;
+    border-radius:99px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+
+  .project-desc{
+    font-size:.85rem;
+    color:var(--text-muted);
+    line-height:1.7;
+    margin-bottom:14px;
+  }
+
+  .project-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+
+  .stack-tag{
+    font-size:.72rem;
+    color:var(--text-muted);
+    padding:4px 10px;
+    border:1px solid var(--border);
+    border-radius:99px;
   }
 
   /* === ANIMATIONS === */
@@ -533,19 +593,103 @@
   <section class="section" style="padding-top:0">
     <h2 class="section-title">Experience</h2>
     <div class="exp-list">
-      <div class="exp-card">
-        <div>
-          <div class="exp-role">System Engineer — DevOps</div>
+      <div class="exp-card" style="flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;width:100%">
           <div class="exp-company"><a href="https://tarento.com" target="_blank" rel="noopener">Tarento Technologies</a></div>
+          <div class="exp-company">Oct 2024 — Present</div>
         </div>
-        <div class="exp-company">Oct 2025 — Present</div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding-left:12px;border-left:1.5px solid var(--accent-dim)">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div class="exp-role">System Engineer — DevOps</div>
+            <div class="exp-company">Oct 2025 — Present</div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <div class="exp-role">Associate Software Engineer</div>
+            <div class="exp-company">Oct 2024 — Oct 2025</div>
+          </div>
+        </div>
       </div>
-      <div class="exp-card">
-        <div>
-          <div class="exp-role">Associate Software Engineer</div>
-          <div class="exp-company"><a href="https://tarento.com" target="_blank" rel="noopener">Tarento Technologies</a></div>
-        </div>
-        <div class="exp-company">Oct 2024 — Oct 2025</div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" style="padding-top:0">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">Stellantis — CARA-AI Vehicle Assistant</div>
+        <span class="project-tag">AWS</span>
+      </div>
+      <p class="project-desc">Designed and deployed AI-based in-vehicle assistant infrastructure on AWS EKS. Automated provisioning with Terraform across dev, QA, and prod. Integrated Redis MemoryDB and MongoDB Atlas for real-time processing. Cut release cycles by 65% with Jenkins pipelines.</p>
+      <div class="project-stack">
+        <span class="stack-tag">EKS</span>
+        <span class="stack-tag">Kubernetes</span>
+        <span class="stack-tag">Terraform</span>
+        <span class="stack-tag">Jenkins</span>
+        <span class="stack-tag">RDS</span>
+        <span class="stack-tag">MemoryDB</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">Thor-AI — Conversational Digital Assistant</div>
+        <span class="project-tag">GCP</span>
+      </div>
+      <p class="project-desc">Deployed AI assistant microservices on GKE with auto-scaling pods and node pools. Automated CI/CD with Jenkins and Ansible across namespaces. Configured Nginx reverse proxy and integrated Loki + Elasticsearch for log aggregation.</p>
+      <div class="project-stack">
+        <span class="stack-tag">GKE</span>
+        <span class="stack-tag">Kubernetes</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">Jenkins</span>
+        <span class="stack-tag">Ansible</span>
+        <span class="stack-tag">Nginx</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">Ashok Leyland Intranet</div>
+        <span class="project-tag">GCP</span>
+      </div>
+      <p class="project-desc">Deployed Flutter web frontend via GCP load balancer. Automated FastAPI microservices with Jenkins and Ansible. Integrated SonarQube for code analysis and configured KrakenD API gateway for CORS and service aggregation.</p>
+      <div class="project-stack">
+        <span class="stack-tag">GCP</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">Jenkins</span>
+        <span class="stack-tag">Ansible</span>
+        <span class="stack-tag">SonarQube</span>
+        <span class="stack-tag">KrakenD</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">AI-Powered DevOps & IT Ticket Resolver</div>
+        <span class="project-tag">AI / GenAI</span>
+      </div>
+      <p class="project-desc">Built a GenAI-powered assistant to analyze system logs, deployment status, and infrastructure health. Developed an AI-driven ticket resolver with Redmine integration. Orchestrated n8n workflows for automated triage and escalation with Slack/Email alerts.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">OpenAI API</span>
+        <span class="stack-tag">n8n</span>
+        <span class="stack-tag">Redmine</span>
+        <span class="stack-tag">Bash</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-name">Backup Automation Script</div>
+        <span class="project-tag">Linux</span>
+      </div>
+      <p class="project-desc">Developed automated backup scripts for PostgreSQL with scheduled cron jobs. Implemented retention policies and failure handling for production environments to improve data reliability and recovery readiness.</p>
+      <div class="project-stack">
+        <span class="stack-tag">Bash</span>
+        <span class="stack-tag">Linux</span>
+        <span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">Cron</span>
       </div>
     </div>
   </section>
@@ -556,7 +700,7 @@
     <p class="connect-email">Feel free to reach out at <a href="mailto:nairsivhari@gmail.com">nairsivhari@gmail.com</a></p>
     <div class="socials">
       <a href="https://github.com/sivharinair2001" target="_blank" rel="noopener" class="social-pill">Github</a>
-      <a href="https://linkedin.com/in/siv" target="_blank" rel="noopener" class="social-pill">LinkedIn</a>
+      <a href="https://linkedin.com/in/siv-hari-nair" target="_blank" rel="noopener" class="social-pill">LinkedIn</a>
       <a href="https://x.com/siv" target="_blank" rel="noopener" class="social-pill">X</a>
     </div>
   </section>

@@ -21,6 +21,40 @@
     --radius:10px;
   }
 
+  [data-theme="light"]{
+    --bg:#f5f5f3;
+    --surface:#ffffff;
+    --text:#0d0d0d;
+    --text-muted:#4a4a4a;
+    --accent:#0f7a34;
+    --accent-dim:#d1fae5;
+    --border:#d4d4d2;
+  }
+
+  [data-theme="light"] body::before{
+    opacity:0.015;
+  }
+
+  [data-theme="light"] .logo-monogram{
+    box-shadow:0 0 18px rgba(22,163,74,.12),0 2px 6px rgba(0,0,0,.06);
+  }
+
+  [data-theme="light"] .hero-label span{
+    background:linear-gradient(135deg,#16a34a 0%,#15803d 50%,#166534 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+
+  [data-theme="light"] .service-icon{
+    background:rgba(22,163,74,.08);
+  }
+
+  [data-theme="light"] .project-tag{
+    background:rgba(22,163,74,.08);
+    border-color:var(--accent-dim);
+  }
+
   html{scroll-behavior:smooth}
 
   body{
@@ -343,6 +377,36 @@
     opacity:.6;
   }
 
+  /* === THEME TOGGLE === */
+  .nav-right{
+    display:flex;align-items:center;gap:10px;
+  }
+
+  .theme-toggle{
+    width:38px;height:38px;
+    border-radius:50%;
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text-muted);
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .25s,color .25s,background .25s;
+    flex-shrink:0;
+  }
+
+  .theme-toggle:hover{
+    border-color:var(--accent-dim);
+    color:var(--text);
+    background:rgba(74,222,128,.04);
+  }
+
+  .theme-toggle svg{width:18px;height:18px}
+
+  .theme-toggle .icon-sun{display:none}
+  .theme-toggle .icon-moon{display:block}
+  [data-theme="light"] .theme-toggle .icon-sun{display:block}
+  [data-theme="light"] .theme-toggle .icon-moon{display:none}
+
   /* === PROJECTS === */
   .project-card{
     padding:24px;
@@ -443,9 +507,15 @@
       </div>
       <span class="logo-text">Siv Hari Nair</span>
     </a>
-    <div class="nav-status">
-      <div class="status-dot"></div>
-      Available for work
+    <div class="nav-right">
+      <div class="nav-status">
+        <div class="status-dot"></div>
+        Available for work
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </div>
   </nav>
 
@@ -712,6 +782,26 @@
   </footer>
 
 </div>
+
+<script>
+  const toggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+
+  // Check saved preference or system preference
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    root.setAttribute('data-theme', saved);
+  } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+    root.setAttribute('data-theme', 'light');
+  }
+
+  toggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>
 
 </body>
 </html>
